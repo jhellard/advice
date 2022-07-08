@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./SCSS/styles.scss";
 
-function App() {
+import Divider from "./images/pattern-divider.svg";
+import Kerbal from "./images/kerbal.svg";
+
+const App = () => {
+  const [advice, setAdvice] = useState({
+    slip: {
+      id: 404,
+      advice: "Click for advice...",
+    },
+  });
+
+  const getAdvice = () => {
+    fetch("https://api.adviceslip.com/advice")
+      .then((res) => res.json())
+      .then((data) => {
+        setAdvice(data);
+      });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className="card">
+      <h2 className="card__number">ADVICE #{advice.slip.id}</h2>
+      <h1 className="card__advice">"{advice.slip.advice}"</h1>
+      <img className="card__line" src={Divider} alt="Divider" />
+      <button className="card__button" onClick={() => getAdvice()}>
+        New Advice
+      </button>
+      <a href="https://www.frontendmentor.io/profile/jhellard">
+        <img className="card__kerbal" src={Kerbal} alt="Kerbal" />
+      </a>
+    </section>
   );
-}
+};
 
 export default App;

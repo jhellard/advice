@@ -1,0 +1,89 @@
+@import "./reset.scss";
+
+// Colors
+
+$lightCyan: hsl(193, 38%, 86%);
+$neonGreen: hsl(150, 100%, 66%);
+$grayishBlue: hsl(217, 19%, 38%);
+$darkGrayishBlue: hsl(217, 19%, 24%);
+$darkBlue: hsl(218, 23%, 16%);
+
+// Main
+
+body {
+  background-color: $darkBlue;
+  display: grid;
+  place-items: center;
+}
+
+h1,
+h2,
+button {
+  font-family: "Manrope", sans-serif;
+}
+
+.card {
+  display: inline-block;
+  text-align: center;
+  max-width: 31.25rem;
+  margin: 0 1rem;
+  border-radius: 15px;
+  background-color: $darkGrayishBlue;
+
+  &__number {
+    font-size: 0.6875rem;
+    letter-spacing: 2px;
+    margin: 2rem 0 1.5rem 0;
+    color: $neonGreen;
+  }
+
+  &__advice {
+    margin: 0 2rem 1rem 2rem;
+    color: $lightCyan;
+  }
+
+  &__line {
+    width: 90%;
+    margin: 0 auto 4rem auto;
+  }
+
+  &__button {
+    position: absolute;
+    background: url("../images/icon-dice.svg") center center no-repeat;
+    background-color: $neonGreen;
+    border: none;
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    color: transparent;
+    font-size: 0;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      box-shadow: 0 0 20px 5px $neonGreen;
+    }
+  }
+
+  &__kerbal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    animation: slideIn 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+  }
+
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-100%) rotate(0deg);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0) rotate(35deg);
+      opacity: 1;
+    }
+  }
+}
