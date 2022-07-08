@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Placeholder](https://your-solution-url.com)
-- Live Site URL: [Placeholder](https://your-live-site-url.com)
+- Solution URL: [GitHub](https://github.com/jhellard/advice)
+- Live Site URL: [Netlify](https://fancy-speculoos-ebde31.netlify.app/)
 
 ## My process
 
