@@ -21,7 +21,7 @@ const App = () => {
   };
 
   return (
-    <section className="card">
+    <section className="card" role="main">
       <h2 className="card__number">ADVICE #{advice.slip.id}</h2>
       <h1 className="card__advice">"{advice.slip.advice}"</h1>
       <img className="card__line" src={Divider} alt="Divider" />
